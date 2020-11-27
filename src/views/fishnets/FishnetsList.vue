@@ -115,7 +115,7 @@ export default class FishnetsList extends Vue {
       icon: 'mdi-pencil',
       roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR, RolesEnum.CUSTOMER]
     },
-    {title: 'Change status', href: '', icon: 'mdi-apple-icloud', roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR]},
+    {title: 'Change status', href: '/fishnets/:id/change-status', icon: 'mdi-apple-icloud', roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR]},
     {title: 'Show logs', href: '/fishnets/:id/logs', icon: 'mdi-card-text-outline', roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR]},
     {
       title: 'Mark as lost',
@@ -124,7 +124,7 @@ export default class FishnetsList extends Vue {
       roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR, RolesEnum.CUSTOMER]
     },
     {title: 'Delete', href: 'fishnets/:id/delete', icon: 'mdi-cancel', roles: [RolesEnum.ADMINISTRATOR]},
-    {title: 'Renew', href: 'tenants/:id/delete', icon: 'mdi-history', roles: [RolesEnum.CUSTOMER]},
+    {title: 'Renew', href: 'fishnets/:id/renew', icon: 'mdi-history', roles: [RolesEnum.CUSTOMER]},
   ];
   private headers = [
     {text: 'Id', value: 'id'},

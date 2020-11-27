@@ -1,14 +1,28 @@
 <template>
   <v-card class="p-3 mx-auto my-12" max-width="1000">
-    <v-tool-bar>
-      <v-card-title>Users</v-card-title>
-      <v-card-subtitle>Here you can manage user accounts.</v-card-subtitle>
-      <v-spacer></v-spacer>
-      <v-btn icon
-             @click="$router.push('/users/create')">
-        <v-icon>mdi-plus-circle</v-icon>
-      </v-btn>
-    </v-tool-bar>
+    <v-container>
+      <v-row cols="12" sm="12" md="6">
+        <v-col>
+          <v-card-title>Users</v-card-title>
+          <v-card-subtitle>Here you can manage users.</v-card-subtitle>
+        </v-col>
+        <v-col class="text-right mt-5">
+          <v-btn
+              color="brown darken-4"
+              dark
+              @click="$router.push('/users/create')"
+          >
+            <v-icon
+                dark
+                left
+            >
+              mdi-database-plus
+            </v-icon>
+            Create user
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
     <v-divider></v-divider>
     <v-row
         class="pa-4"
@@ -53,11 +67,10 @@
               flat
               max-width="400"
           >
-            <v-card-text
-            >
+            <v-card-text>
               <v-avatar
                   color="primary"
-                  size="88"
+                  size="62"
               >
                 <span class="white--text headline">{{ getAvatarText(selected.name) }}</span>
               </v-avatar>
