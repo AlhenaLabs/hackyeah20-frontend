@@ -2,8 +2,8 @@
   <v-app>
     <v-card class="mx-auto overflow-hidden" width="100%" height="100%">
       <v-app-bar v-if="token"
-                 color="deep-orange accent-3"
-                 dark
+                 color="brown lighten-4"
+                 light
       >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 

@@ -6,9 +6,9 @@
           <v-col cols="12"
                  sm="12"
                  md="6">
-            <v-card-title>Manage your fishnets</v-card-title>
+            <v-card-title>Manage fishnets</v-card-title>
             <v-card-subtitle>
-              Here you can manage your fishnets and add new ones.
+              Here you can manage your fishnets.
             </v-card-subtitle>
           </v-col>
           <v-spacer></v-spacer>
@@ -28,17 +28,19 @@
               </v-icon>
             </v-btn>
           </v-col>
+          <v-col cols="12">
+            <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Search"
+                single-line
+                hide-details
+            ></v-text-field>
+          </v-col>
         </v-row>
       </v-container>
       <v-divider></v-divider>
       <v-card-text>
-        <v-text-field
-            v-model="search"
-            append-icon="mdi-magnify"
-            label="Search"
-            single-line
-            hide-details
-        ></v-text-field>
         <v-data-table
             :headers="headers"
             :items="fishnets"
@@ -46,6 +48,12 @@
             class="elevation-1"
             :search="search"
         >
+          <template v-slot:item.seller="{ item }">
+            {{item.seller ? item.seller.name : ''}}
+          </template>
+          <template v-slot:item.customer="{ item }">
+            {{item.customer ? item.customer.name : ''}}
+          </template>
           <template v-slot:item.action="{ item }">
             <v-menu
                 bottom
@@ -107,16 +115,16 @@ export default class FishnetsList extends Vue {
       icon: 'mdi-pencil',
       roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR, RolesEnum.CUSTOMER]
     },
-    {title: 'Change status', href: '', icon: 'mdi-wrench', roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR]},
-    {title: 'Show logs', href: '', icon: 'mdi-wrench', roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR]},
+    {title: 'Change status', href: '', icon: 'mdi-apple-icloud', roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR]},
+    {title: 'Show logs', href: '', icon: 'mdi-card-text-outline', roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR]},
     {
       title: 'Mark as lost',
       href: '',
-      icon: 'mdi-wrench',
+      icon: 'mdi-bash',
       roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR, RolesEnum.CUSTOMER]
     },
     {title: 'Delete', href: 'tenants/:id/delete', icon: 'mdi-cancel', roles: [RolesEnum.ADMINISTRATOR]},
-    {title: 'Renew', href: 'tenants/:id/delete', icon: 'mdi-cancel', roles: [RolesEnum.CUSTOMER]},
+    {title: 'Renew', href: 'tenants/:id/delete', icon: 'mdi-history', roles: [RolesEnum.CUSTOMER]},
   ];
   private headers = [
     {text: 'Seller', value: 'seller'},
