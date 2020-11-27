@@ -1,12 +1,13 @@
 import {RouteConfig} from "vue-router";
 import Login from "@/views/Login.vue";
 import Acc from "@/views/Acc.vue";
-import Users from "@/views/Users.vue";
+import Users from "@/views/users/Users.vue";
 import Privileges from "@/views/errors/Privileges.vue";
 import FishnetsList from "@/views/fishnets/FishnetsList.vue";
 import FishnetMarkAsLost from "@/views/fishnets/FishnetMarkAsLost.vue";
 import FishnetDelete from "@/views/fishnets/FishnetDelete.vue";
 import CreateFishnet from "@/views/fishnets/CreateFishnet.vue";
+import CreateUser from "@/views/users/CreateUser.vue";
 import FishnetLogs from "@/views/fishnets/FishnetLogs.vue";
 
 export const appRoutes: Array<RouteConfig> = [
@@ -64,7 +65,10 @@ export const appRoutes: Array<RouteConfig> = [
         name: 'Users',
         component: Users,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            checkRoles: true,
+            administrator: true,
+            seller: true,
         }
     },
     {
@@ -83,4 +87,15 @@ export const appRoutes: Array<RouteConfig> = [
             requiresAuth: true
         }
     },
+    {
+        path: '/users/create',
+        name: 'CreateUser',
+        component: CreateUser,
+        meta: {
+            requiresAuth: true,
+            checkRoles: true,
+            administrator: true,
+            seller: true,
+        }
+    }
 ];

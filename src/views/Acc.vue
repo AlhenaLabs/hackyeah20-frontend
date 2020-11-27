@@ -8,7 +8,7 @@
         background-color="transparent"
         color="basil"
         grow
-    >
+    >createUser
       <v-tab
           v-for="item in items"
           :key="item"

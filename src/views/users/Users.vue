@@ -1,7 +1,15 @@
 <template>
   <v-card class="p-3 mx-auto my-12" max-width="1000">
-    <v-card-title>Users</v-card-title>
-    <v-card-subtitle>Here you can manage user accounts.</v-card-subtitle>
+    <app-bar>
+      <v-card-title>Users</v-card-title>
+      <v-card-subtitle>Here you can manage user accounts.</v-card-subtitle>
+      <v-spacer></v-spacer>
+      <v-btn icon
+             @click="$router.push('/users/create')">
+        <v-icon>mdi-plus-circle</v-icon>
+      </v-btn>
+    </app-bar>
+    <v-divider></v-divider>
     <v-row
         class="pa-4"
         justify="space-between"
@@ -76,13 +84,11 @@ import {UserService} from "@/services/UserService";
 import {User} from "@/types/User";
 
 @Component
-export default class UserComponent extends Vue {
+export default class Users extends Vue {
   @$inject(ServicesEnum.USER_SERVICE) private readonly userService!: UserService
 
-  active = [];
-  open = [];
-  users: Array<User> = [];
-
+  private active = [];
+  private users: Array<User> = [];
 
   async fetchUsers() {
     this.users = await this.userService.getAllUsers();
@@ -111,6 +117,10 @@ export default class UserComponent extends Vue {
     const name = username.split(' ');
 
     return (name[0].charAt(0) + name[1].charAt(0)).toUpperCase();
+  }
+
+  addUser() {
+    return;
   }
 
 }
