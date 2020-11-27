@@ -3,6 +3,7 @@ import api from '@/plugins/api';
 import {EndpointsEnum} from "@/enums/EndpointsEnum";
 import {injectable} from "inversify";
 import {IUpdateUserForm} from "@/interfaces/forms/IUpdateUserForm";
+import {Account} from "@/types/Account";
 
 
 @injectable()
