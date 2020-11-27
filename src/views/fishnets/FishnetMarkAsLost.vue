@@ -1,9 +1,16 @@
 <template>
   <v-card class="p-3 mx-auto my-12" max-width="600">
-    <v-card-title>Mark as lost</v-card-title>
-    <v-card-subtitle>You are about to mark this fishnet as lost.</v-card-subtitle>
+    <v-card-title class="justify-center">Mark as lost</v-card-title>
+    <v-card-subtitle class="text-center">You are about to mark this fishnet as lost.</v-card-subtitle>
     <v-divider></v-divider>
     <v-card-text class="text-center">
+      <v-alert
+          v-if="errorMessage"
+          dense
+          outlined
+          type="error">
+        {{this.errorMessage}}
+      </v-alert>
       <div class="text-center">
         <v-btn color="brown darken-4"
                @click="$router.push('/')"

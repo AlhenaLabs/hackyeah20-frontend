@@ -7,6 +7,8 @@ import FishnetsList from "@/views/fishnets/FishnetsList.vue";
 import FishnetMarkAsLost from "@/views/fishnets/FishnetMarkAsLost.vue";
 import FishnetDelete from "@/views/fishnets/FishnetDelete.vue";
 import CreateFishnet from "@/views/fishnets/CreateFishnet.vue";
+import FishnetChangeStatus from "@/views/fishnets/FishnetChangeStatus.vue";
+import FIshnetRenew from "@/views/fishnets/FIshnetRenew.vue";
 
 export const appRoutes: Array<RouteConfig> = [
     {
@@ -70,6 +72,22 @@ export const appRoutes: Array<RouteConfig> = [
         path: '/fishnets/:id/delete',
         name: 'FishnetDelete',
         component: FishnetDelete,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/fishnets/:id/change-status',
+        name: 'FishnetChangeStatus',
+        component: FishnetChangeStatus,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/fishnets/:id/renew',
+        name: 'FishnetRenew',
+        component: FIshnetRenew,
         meta: {
             requiresAuth: true
         }
