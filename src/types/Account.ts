@@ -1,12 +1,12 @@
 import {FishnetStateEnum} from "@/enums/FishnetStateEnum";
-import {User} from "@/types/User";
+import {RolesEnum} from "@/enums/RolesEnum";
 
 export type Fishnet = {
     id: number
-    rfid: number
-    seller: User | null
-    customer: User | null
-    state: FishnetStateEnum
+    name: string
+    email: string
+    email_verified_at: Date
     created_at: Date
     updated_at: Date
+    role: RolesEnum
 }

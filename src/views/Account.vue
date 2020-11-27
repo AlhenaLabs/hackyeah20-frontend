@@ -8,10 +8,10 @@
       <v-alert
           dense
           outlined
-          type="error"
+          type="success"
           v-if="success"
       >
-        {{}}
+        Your account was updated successfully
       </v-alert>
 
       <v-alert
@@ -77,9 +77,10 @@ export default class Account extends Vue {
 
   public async processUpdate(): Promise<void> {
     try {
-      await this.accountService.updateAccount(this.updateForm);
-      this.$router.push('Account');
-      this.$router.go(0);
+      const response = await this.accountService.updateAccount(this.updateForm);
+      if(response.status === 200){
+        this.success = true;
+      }
     } catch (e) {
       this.errorMessage = e.response.data.message ?? e.message;
     }
