@@ -61,3 +61,9 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style>
+a {
+  color: black !important;
+}
+</style>

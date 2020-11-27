@@ -2,6 +2,8 @@ import api from '@/plugins/api';
 import {EndpointsEnum} from "@/enums/EndpointsEnum";
 import {User} from "@/types/User";
 import {injectable} from "inversify";
+import ICreateUserForm from "@/interfaces/forms/ICreateUserForm";
+import {StorageKeys} from "@/enums/StorageKeys";
 
 
 @injectable()
@@ -16,8 +18,13 @@ export class UserService {
         return null;
     }
 
-    public async createUser() {
+    public async createUser(form: ICreateUserForm) {
+        return  await api.post(EndpointsEnum.USERS, form);
+    }
 
-        return null;
+    public getCurrentUserRole() {
+        const user = JSON.parse(localStorage.getItem(StorageKeys.USER) || '{}');
+
+        return user.role;
     }
 }
