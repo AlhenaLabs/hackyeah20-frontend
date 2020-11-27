@@ -127,6 +127,7 @@ export default class FishnetsList extends Vue {
     {title: 'Renew', href: 'tenants/:id/delete', icon: 'mdi-history', roles: [RolesEnum.CUSTOMER]},
   ];
   private headers = [
+    {text: 'Id', value: 'id'},
     {text: 'Seller', value: 'seller'},
     {text: 'Customer', value: 'customer'},
     {text: 'State', value: 'state'},
