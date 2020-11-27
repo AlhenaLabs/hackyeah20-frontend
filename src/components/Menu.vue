@@ -12,6 +12,11 @@
           <a class="v-btn" @click="logout">Logout</a>
         </v-list-item-title>
       </v-list-item>
+      <v-list-item>
+        <v-list-item-title>
+         <user-component></user-component>
+        </v-list-item-title>
+      </v-list-item>
     </v-list-item-group>
   </v-container>
 </template>
@@ -23,8 +28,13 @@ import {$inject} from "@vanroeybe/vue-inversify-plugin/dist/decorator";
 import {ServicesEnum} from "@/enums/ServicesEnum";
 import {User} from "@/types/User";
 import {AuthService} from "@/services/AuthService";
+import UserComponent from "@/components/UserComponent.vue";
 
-@Component
+@Component({
+  components: {
+    userComponent: UserComponent
+  }
+})
 export default class Menu extends Vue {
   @$inject(ServicesEnum.AUTH_SERVICE) private readonly authService!: AuthService
   private user: User | null = null;
