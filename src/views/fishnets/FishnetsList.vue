@@ -116,7 +116,7 @@ export default class FishnetsList extends Vue {
       roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR, RolesEnum.CUSTOMER]
     },
     {title: 'Change status', href: '', icon: 'mdi-apple-icloud', roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR]},
-    {title: 'Show logs', href: '', icon: 'mdi-card-text-outline', roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR]},
+    {title: 'Show logs', href: '/fishnets/:id/logs', icon: 'mdi-card-text-outline', roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR]},
     {
       title: 'Mark as lost',
       href: 'fishnets/:id/mark-as-lost',

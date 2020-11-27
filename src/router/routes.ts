@@ -8,6 +8,7 @@ import FishnetMarkAsLost from "@/views/fishnets/FishnetMarkAsLost.vue";
 import FishnetDelete from "@/views/fishnets/FishnetDelete.vue";
 import CreateFishnet from "@/views/fishnets/CreateFishnet.vue";
 import CreateUser from "@/views/users/CreateUser.vue";
+import FishnetLogs from "@/views/fishnets/FishnetLogs.vue";
 
 export const appRoutes: Array<RouteConfig> = [
     {
@@ -16,6 +17,14 @@ export const appRoutes: Array<RouteConfig> = [
         component: FishnetsList,
         meta: {
             requiresAuth: true
+        }
+    },
+    {
+        path: '/fishnets/:id/logs',
+        name: 'FishnetLogs',
+        component: FishnetLogs,
+        meta: {
+            requiresAuth: true,
         }
     },
     {
