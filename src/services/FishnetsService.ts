@@ -18,4 +18,14 @@ export class FishnetsService {
         const response = await api.get('/fishnets/' + id);
         return response.data;
     }
+
+    public async markAsLost(id: number): Promise<Fishnet> {
+        const response = await api.post('/fishnets/' + id + '/lost');
+        return response.data;
+    }
+
+    public async deleteFishnet(id: number): Promise<Fishnet> {
+        const response = await api.delete('/fishnets/' + id);
+        return response.data;
+    }
 }
