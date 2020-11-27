@@ -1,14 +1,14 @@
 import {RouteConfig} from "vue-router";
 import Login from "@/views/Login.vue";
-import Dashboard from "@/views/Dashboard.vue";
 import Account from "@/views/Account.vue";
 import Privileges from "@/views/errors/Privileges.vue";
+import FishnetsList from "@/views/fishnets/FishnetsList.vue";
 
 export const appRoutes: Array<RouteConfig> = [
     {
         path: '/',
-        name: 'Dashboard',
-        component: Dashboard,
+        name: 'Fishnets',
+        component: FishnetsList,
         meta: {
             requiresAuth: true
         }
