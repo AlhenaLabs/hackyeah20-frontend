@@ -20,6 +20,16 @@ export class FishnetsService {
         return response.data;
     }
 
+    public async markAsLost(id: number): Promise<Fishnet> {
+        const response = await api.post('/fishnets/' + id + '/lost');
+        return response.data;
+    }
+
+    public async deleteFishnet(id: number): Promise<Fishnet> {
+        const response = await api.delete('/fishnets/' + id);
+        return response.data;
+    }
+
     public async create(form: ICreateFishnetForm): Promise<Array<Fishnet>> {
         const response = await api.post('/fishnets', form);
         return response.data;

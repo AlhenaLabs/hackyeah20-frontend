@@ -119,11 +119,11 @@ export default class FishnetsList extends Vue {
     {title: 'Show logs', href: '/fishnets/:id/logs', icon: 'mdi-card-text-outline', roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR]},
     {
       title: 'Mark as lost',
-      href: '',
+      href: 'fishnets/:id/mark-as-lost',
       icon: 'mdi-bash',
       roles: [RolesEnum.SELLER, RolesEnum.ADMINISTRATOR, RolesEnum.CUSTOMER]
     },
-    {title: 'Delete', href: 'tenants/:id/delete', icon: 'mdi-cancel', roles: [RolesEnum.ADMINISTRATOR]},
+    {title: 'Delete', href: 'fishnets/:id/delete', icon: 'mdi-cancel', roles: [RolesEnum.ADMINISTRATOR]},
     {title: 'Renew', href: 'tenants/:id/delete', icon: 'mdi-history', roles: [RolesEnum.CUSTOMER]},
   ];
   private headers = [
