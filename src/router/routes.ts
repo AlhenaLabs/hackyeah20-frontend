@@ -5,6 +5,7 @@ import Users from "@/views/Users.vue";
 import Privileges from "@/views/errors/Privileges.vue";
 import FishnetsList from "@/views/fishnets/FishnetsList.vue";
 import CreateFishnet from "@/views/fishnets/CreateFishnet.vue";
+import FishnetLogs from "@/views/fishnets/FishnetLogs.vue";
 
 export const appRoutes: Array<RouteConfig> = [
     {
@@ -13,6 +14,14 @@ export const appRoutes: Array<RouteConfig> = [
         component: FishnetsList,
         meta: {
             requiresAuth: true
+        }
+    },
+    {
+        path: '/fishnets/:id/logs',
+        name: 'FishnetLogs',
+        component: FishnetLogs,
+        meta: {
+            requiresAuth: true,
         }
     },
     {

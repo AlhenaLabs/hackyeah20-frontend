@@ -8,20 +8,19 @@
           <v-card-subtitle>Here you can add new fishnet by rfid.</v-card-subtitle>
         </v-col>
         <v-col class="text-right mt-5">
-          <router-link to="/">
-            <v-btn
-                color="brown darken-4"
+          <v-btn
+              color="brown darken-4"
+              dark
+              @click="$router.push('/')"
+          >
+            <v-icon
                 dark
+                left
             >
-              <v-icon
-                  dark
-                  left
-              >
-                mdi-arrow-left
-              </v-icon>
-              Back
-            </v-btn>
-          </router-link>
+              mdi-arrow-left
+            </v-icon>
+            Back
+          </v-btn>
         </v-col>
       </v-row>
     </v-container>
