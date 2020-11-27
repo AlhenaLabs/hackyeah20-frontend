@@ -1,7 +1,6 @@
-import {FishnetStateEnum} from "@/enums/FishnetStateEnum";
 import {RolesEnum} from "@/enums/RolesEnum";
 
-export type Fishnet = {
+export type Account = {
     id: number
     name: string
     email: string
