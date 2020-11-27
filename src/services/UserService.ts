@@ -18,8 +18,6 @@ export class UserService {
     }
 
     public async createUser(form: ICreateUserForm) {
-        const resp = await api.post(EndpointsEnum.USERS, form);
-
-        return resp.data;
+        return  await api.post(EndpointsEnum.USERS, form);
     }
 }

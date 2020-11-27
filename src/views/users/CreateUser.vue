@@ -58,6 +58,15 @@
         >
           Create user
         </v-btn>
+
+        <v-btn
+            type="button"
+            color="brown darken-4"
+            class="mr-4 mt-2"
+            dark
+            @click="$router.push('/users')">
+          Return
+        </v-btn>
       </v-form>
 
     </v-card-text>
