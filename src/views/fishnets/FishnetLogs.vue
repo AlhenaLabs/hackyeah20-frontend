@@ -23,6 +23,8 @@
       </v-row>
     </v-container>
     <v-card-text>
+      <strong v-if="fishnet && fishnet.customer">Customer: </strong>{{ fishnet && fishnet.customer ? fishnet.customer.name : '' }}
+
       <span v-if="!fishnet">Please wait...</span>
       <v-alert
           dense
@@ -43,7 +45,7 @@
             small
         >
           <v-row class="pt-1">
-            <v-col cols="3">
+            <v-col cols="6">
               <strong>{{ log.type }}</strong>
             </v-col>
             <v-col>

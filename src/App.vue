@@ -64,6 +64,6 @@ export default Vue.extend({
 
 <style>
 a {
-  color: black;
+  color: black !important;
 }
 </style>
