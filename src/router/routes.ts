@@ -1,6 +1,7 @@
 import {RouteConfig} from "vue-router";
 import Login from "@/views/Login.vue";
 import Dashboard from "@/views/Dashboard.vue";
+import Account from "@/views/Account.vue";
 import Privileges from "@/views/errors/Privileges.vue";
 
 export const appRoutes: Array<RouteConfig> = [
@@ -9,12 +10,13 @@ export const appRoutes: Array<RouteConfig> = [
         name: 'Dashboard',
         component: Dashboard,
         meta: {
-            requiresAuth: true,
-            checkRoles: true,
-            administrator: true,
-            seller: true,
-            customer: true
+            requiresAuth: true
         }
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login
     },
     {
         path: '/errors/privileges',
@@ -25,8 +27,11 @@ export const appRoutes: Array<RouteConfig> = [
         }
     },
     {
-        path: '/login',
-        name: 'Login',
-        component: Login
+        path: '/account',
+        name: 'Account',
+        component: Account,
+        meta: {
+            requiresAuth: true
+        }
     },
 ];
