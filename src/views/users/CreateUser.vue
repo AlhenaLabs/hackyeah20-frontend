@@ -43,6 +43,7 @@
             filled
         ></v-text-field>
         <v-select
+            v-if="isAdmin"
             v-model="form.role"
             :items="roles"
             label="Role"
@@ -61,7 +62,7 @@
 
         <v-btn
             type="button"
-            color="brown darken-4"
+            color="brown lighten-4"
             class="mr-4 mt-2"
             dark
             @click="$router.push('/users')">
@@ -91,6 +92,7 @@ export default class CreateUser extends Vue {
   @$inject(ServicesEnum.USER_SERVICE) private readonly userService!: UserService
 
   async createUser(): Promise<void> {
+    this.form.role = RolesEnum.CUSTOMER;
     try {
       const response = await this.userService.createUser(this.form);
       if (response.status === 201) {
@@ -99,6 +101,10 @@ export default class CreateUser extends Vue {
     } catch (e) {
       this.errorMessage = e.response.data.message ?? e.message;
     }
+  }
+
+  isAdmin() {
+    return this.userService.getCurrentUserRole() === RolesEnum.ADMINISTRATOR;
   }
 }
 </script>
