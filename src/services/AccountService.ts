@@ -7,15 +7,13 @@ import {IUpdateUserForm} from "@/interfaces/forms/IUpdateUserForm";
 
 @injectable()
 export class AccountService {
-    public async getAccount(): Promise<void> {
+    public async getAccount(): Promise<Account> {
         const response: AxiosResponse = await api.get(EndpointsEnum.ACCOUNT);
         return response.data;
     }
 
     public async updateAccount(form: IUpdateUserForm) {
         const response: AxiosResponse = await api.put(EndpointsEnum.ACCOUNT, form);
-        const data = response.data;
-
-        return null;
+        return response;
     }
 }
