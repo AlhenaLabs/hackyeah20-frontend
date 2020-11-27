@@ -12,6 +12,7 @@
       <v-tab
           v-for="item in items"
           :key="item"
+          @click="clearAlerts"
       >
         {{ item }}
       </v-tab>
@@ -27,14 +28,18 @@
       Account updated successfully
     </v-alert>
 
-    <v-alert
-        dense
-        outlined
-        type="error"
-        v-if="errorMessage"
-    >
-      {{errorMessage}}
-    </v-alert>
+      <template v-if="errorMessage">
+        <v-alert
+            v-for="error in errorMessage"
+            dense
+            outlined
+            type="error"
+            :key="error"
+        >
+          {{error}}
+        </v-alert>
+      </template>
+
     </v-card-text>
 
     <v-tabs-items v-model="tab">
@@ -135,8 +140,7 @@ export default class Acc extends Vue {
   private tab = null;
 
   public async processUpdate(): Promise<void> {
-    this.errorMessage = '';
-    this.success = false;
+    this.clearAlerts();
     try {
       const response = await this.accountService.updateAccount(this.updateForm);
       if(response.status === 200){
@@ -148,15 +152,14 @@ export default class Acc extends Vue {
   }
 
   public async processUpdatePass(): Promise<void> {
-    this.errorMessage = '';
-    this.success = false;
+    this.clearAlerts();
     try {
       const response = await this.accountService.updateAccountPass(this.updatePassForm);
       if(response.status === 200){
         this.success = true;
       }
     } catch (e) {
-      this.errorMessage = e.response.data.message ?? e.message;
+      this.errorMessage = e.response.data.errors.password ?? e.message;
     }
   }
 
@@ -168,6 +171,10 @@ export default class Acc extends Vue {
     } catch (e) {
       this.errorMessage = e.response.data.message ?? e.message;
     }
+  }
+  public clearAlerts(){
+    this.errorMessage = '';
+    this.success = false;
   }
 }
 </script>
