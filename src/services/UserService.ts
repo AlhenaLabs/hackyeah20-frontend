@@ -2,6 +2,7 @@ import api from '@/plugins/api';
 import {EndpointsEnum} from "@/enums/EndpointsEnum";
 import {User} from "@/types/User";
 import {injectable} from "inversify";
+import ICreateUserForm from "@/interfaces/forms/ICreateUserForm";
 
 
 @injectable()
@@ -16,8 +17,9 @@ export class UserService {
         return null;
     }
 
-    public async createUser() {
+    public async createUser(form: ICreateUserForm) {
+        const resp = await api.post(EndpointsEnum.USERS, form);
 
-        return null;
+        return resp.data;
     }
 }
