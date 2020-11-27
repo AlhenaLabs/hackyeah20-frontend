@@ -1,6 +1,6 @@
 <template>
   <v-card class="p-3 mx-auto my-12" max-width="1000">
-    <app-bar>
+    <v-tool-bar>
       <v-card-title>Users</v-card-title>
       <v-card-subtitle>Here you can manage user accounts.</v-card-subtitle>
       <v-spacer></v-spacer>
@@ -8,7 +8,7 @@
              @click="$router.push('/users/create')">
         <v-icon>mdi-plus-circle</v-icon>
       </v-btn>
-    </app-bar>
+    </v-tool-bar>
     <v-divider></v-divider>
     <v-row
         class="pa-4"
@@ -53,10 +53,11 @@
               flat
               max-width="400"
           >
-            <v-card-text>
+            <v-card-text
+            >
               <v-avatar
                   color="primary"
-                  size="62"
+                  size="88"
               >
                 <span class="white--text headline">{{ getAvatarText(selected.name) }}</span>
               </v-avatar>
@@ -66,6 +67,26 @@
               <div class="blue--text mb-2">
                 {{ selected.email }}
               </div>
+
+              <v-btn
+                  type="submit"
+                  color="brown darken-4"
+                  class="mr-4 mt-2"
+                  dark
+                  @click="resetPassword"
+              >
+                Send password
+              </v-btn>
+              <v-btn
+                  type="submit"
+                  color="red darken-4"
+                  class="mr-4 mt-2"
+                  dark
+                  @click="deleteUser"
+              >
+                Remove user
+              </v-btn>
+
             </v-card-text>
 
           </v-card>
@@ -116,11 +137,27 @@ export default class Users extends Vue {
   getAvatarText(username: string) {
     const name = username.split(' ');
 
-    return (name[0].charAt(0) + name[1].charAt(0)).toUpperCase();
+    if (name.length > 1) {
+      return (name[0].charAt(0) + name[1].charAt(0)).toUpperCase();
+    }
+    return '';
   }
 
-  addUser() {
+
+  async resetPassword() {
+    await this.userService.resetPassword(this.selected.id);
     return;
+  }
+
+  async deleteUser() {
+    try {
+      const response = await this.userService.removeUser(this.selected.id);
+      if (response.status === 200) {
+       this.users.splice(this.users.indexOf(this.selected), 1);
+      }
+    } catch (e) {
+     console.log(e)
+    }
   }
 
 }

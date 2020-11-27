@@ -8,7 +8,7 @@ import {StorageKeys} from "@/enums/StorageKeys";
 
 @injectable()
 export class UserService {
-    public async getAllUsers(): Promise<Array<User>>{
+    public async getAllUsers(): Promise<Array<User>> {
         const response = await api.get(EndpointsEnum.USERS);
         return response.data;
     }
@@ -19,7 +19,15 @@ export class UserService {
     }
 
     public async createUser(form: ICreateUserForm) {
-        return  await api.post(EndpointsEnum.USERS, form);
+        return await api.post(EndpointsEnum.USERS, form);
+    }
+
+    public async removeUser(id: number) {
+        return await api.delete(EndpointsEnum.USERS + '/' + id);
+    }
+
+    public async resetPassword(id: number) {
+        return await api.post(EndpointsEnum.USERS + '/' + id);
     }
 
     public getCurrentUserRole() {
