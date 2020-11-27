@@ -65,15 +65,16 @@ import {$inject} from '@vanroeybe/vue-inversify-plugin/dist/decorator';
 import {ServicesEnum} from "@/enums/ServicesEnum";
 import {IUpdateUserForm} from "@/interfaces/forms/IUpdateUserForm";
 import {AccountService} from "@/services/AccountService";
+import {Account} from "@/types/Account";
 
 @Component
-export default class Account extends Vue {
+export default class Acc extends Vue {
   @$inject(ServicesEnum.ACCOUNT_SERVICE) private readonly accountService!: AccountService
   private updateForm: IUpdateUserForm = { name: '',email: ''};
   private valid = true;
   private success = false;
   private errorMessage: string|null = null;
-  private account = null;
+  private account: Account|null = null;
 
   public async processUpdate(): Promise<void> {
     try {

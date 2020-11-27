@@ -1,9 +1,10 @@
 import {RouteConfig} from "vue-router";
 import Login from "@/views/Login.vue";
-import Account from "@/views/Account.vue";
+import Acc from "@/views/Acc.vue";
 import Users from "@/views/Users.vue";
 import Privileges from "@/views/errors/Privileges.vue";
 import FishnetsList from "@/views/fishnets/FishnetsList.vue";
+import CreateFishnet from "@/views/fishnets/CreateFishnet.vue";
 
 export const appRoutes: Array<RouteConfig> = [
     {
@@ -12,6 +13,18 @@ export const appRoutes: Array<RouteConfig> = [
         component: FishnetsList,
         meta: {
             requiresAuth: true
+        }
+    },
+    {
+        path: '/fishnets/create',
+        name: 'CreateFishnet',
+        component: CreateFishnet,
+        meta: {
+            requiresAuth: true,
+            checkRoles: true,
+            administrator: true,
+            seller: true,
+            customer: false
         }
     },
     {
@@ -30,7 +43,7 @@ export const appRoutes: Array<RouteConfig> = [
     {
         path: '/account',
         name: 'Account',
-        component: Account,
+        component: Acc,
         meta: {
             requiresAuth: true
         }
