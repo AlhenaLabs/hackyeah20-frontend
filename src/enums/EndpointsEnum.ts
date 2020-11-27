@@ -1,4 +1,5 @@
 export enum EndpointsEnum {
     LOGIN = '/login',
-    USERS = "/users"
+    USERS = "/users",
+    ACCOUNT = '/account'
 }
