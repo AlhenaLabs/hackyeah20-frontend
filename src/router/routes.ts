@@ -1,6 +1,7 @@
 import {RouteConfig} from "vue-router";
 import Login from "@/views/Login.vue";
 import Dashboard from "@/views/Dashboard.vue";
+import Account from "@/views/Account.vue";
 
 export const appRoutes: Array<RouteConfig>  = [
     {
@@ -15,5 +16,13 @@ export const appRoutes: Array<RouteConfig>  = [
         path: '/login',
         name: 'Login',
         component: Login
+    },
+    {
+        path: '/account',
+        name: 'Account',
+        component: Account,
+        meta: {
+            requiresAuth: true
+        }
     },
 ];

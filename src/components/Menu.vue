@@ -9,6 +9,11 @@
       </v-list-item>
       <v-list-item>
         <v-list-item-title>
+          <router-link to="/account" class="v-btn">Account</router-link>
+        </v-list-item-title>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-title>
           <a class="v-btn" @click="logout">Logout</a>
         </v-list-item-title>
       </v-list-item>
