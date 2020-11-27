@@ -1,10 +1,10 @@
-import {injectable} from 'inversify';
-import {User} from "@/types/User";
-import {StorageKeys} from "@/enums/StorageKeys";
-import {ILoginForm} from "@/interfaces/forms/ILoginForm";
 import {AxiosResponse} from 'axios';
 import api from '@/plugins/api';
 import {EndpointsEnum} from "@/enums/EndpointsEnum";
+import {StorageKeys} from "@/enums/StorageKeys";
+import {User} from "@/types/User";
+import {ILoginForm} from "@/interfaces/forms/ILoginForm";
+import {injectable} from "inversify";
 
 @injectable()
 export class AuthService {

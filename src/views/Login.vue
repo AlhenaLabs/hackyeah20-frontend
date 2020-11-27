@@ -1,6 +1,6 @@
 <template>
   <v-card class="p-3 mx-auto my-12" max-width="400">
-    <Logo class="text-center" width="320" show-text="true"></Logo>
+    <Logo class="text-center" width="320" height="100" show-text="true"></Logo>
     <v-divider></v-divider>
     <v-card-title>Sing in</v-card-title>
     <v-card-subtitle>You have to sign in to use system functionalities.</v-card-subtitle>
@@ -33,8 +33,9 @@
         ></v-text-field>
         <v-btn
             type="submit"
-            color="primary"
+            color="brown darken-4"
             class="mr-4 mt-2"
+            dark
             @click="processLogin"
         >
           Sign in
